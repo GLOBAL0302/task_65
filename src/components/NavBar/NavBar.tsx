@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary mb-5">
       <div className="container-fluid">
-        <NavLink to="/" className="navbar-brand">
+        <NavLink to="/page/home" className="navbar-brand">
           Static Pages
         </NavLink>
         <div className="collapse navbar-collapse d-flex gap-5" id="navbarNavAltMarkup">
@@ -14,15 +14,17 @@ const NavBar = () => {
               <li
                 key={page.id}
                 className="nav-item">
-                <a href='#' className="nav-link " aria-current="page">{page.title}</a>
+                <NavLink to={`/page/${page.id}`} className="nav-link " aria-current="page">{page.title}</NavLink>
               </li>
             ))}
           </ul>
           <div>
-            <img
-              style={{width:"25px"}}
-              src='https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png'
-              alt='' />
+            <NavLink to="/PageForm">
+              <img
+                style={{width:"25px"}}
+                src='https://upload.wikimedia.org/wikipedia/commons/d/dc/Settings-icon-symbol-vector.png'
+                alt='' />
+            </NavLink>
           </div>
         </div>
       </div>

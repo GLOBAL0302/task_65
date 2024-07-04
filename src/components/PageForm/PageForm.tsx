@@ -1,6 +1,8 @@
 import { PAGES } from '../../constants';
 import React, { useState } from 'react';
 import { IPageMutation } from '../../types';
+import axiosApi from '../../axiosApi';
+import { useNavigate } from 'react-router-dom';
 
 const initialState: IPageMutation = {
   page: '',
@@ -9,6 +11,7 @@ const initialState: IPageMutation = {
 };
 
 const PageForm = () => {
+  const navigate = useNavigate();
   const [pageMutation, setPageMutation] = useState<IPageMutation>(initialState);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -21,8 +24,8 @@ const PageForm = () => {
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(pageMutation)
 
+    axiosApi.post("/page.json", pageMutation);
   };
 
   return (
@@ -33,6 +36,8 @@ const PageForm = () => {
         <div className='form-group mb-4'>
           <label htmlFor='page'></label>
           <select
+            required
+            value={pageMutation.page}
             onChange={onChange}
             name='page'
             id='page'
@@ -52,6 +57,7 @@ const PageForm = () => {
             </span>
           </label>
           <input
+            required
             onChange={onChange}
             name="title"
             id="title"
@@ -68,6 +74,7 @@ const PageForm = () => {
             </span>
           </label>
           <input
+            required
             onChange={onChange}
             name="content"
             id="content"

@@ -1,6 +1,6 @@
 import { IPage } from './types';
 
-export const PAGES:IPage[]= [
+export const PAGES: IPage[] = [
   {
     title: 'HOME',
     id: 'home',
@@ -10,11 +10,11 @@ export const PAGES:IPage[]= [
     id: 'about',
   },
   {
-    title: "CONTACTS",
-  id:"contacts"
+    title: 'CONTACTS',
+    id: 'contacts',
   },
   {
-    title: "DIVISIONS",
-    id:"division"
-  }
+    title: 'DIVISIONS',
+    id: 'division',
+  },
 ];
