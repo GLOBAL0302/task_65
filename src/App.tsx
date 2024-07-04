@@ -1,9 +1,12 @@
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import PageForm from './components/PageForm/PageForm';
 
 const App = () => {
   return (
     <>
-      <p>hh</p>
+      <NavBar/>
+      <PageForm/>
     </>
   );
 };

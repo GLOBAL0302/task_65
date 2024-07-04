@@ -1,9 +1,14 @@
 #root {
   max-width: 1280px;
+  margin: 3px auto;
+  padding: 2rem;
+
 }
 
 body {
   height: 100vh;
   background-image: url('https://img.freepik.com/free-vector/blue-polygon-dark-background-social-template_53876-116080.jpg?w=1380&t=st=1720101296~exp=1720101896~hmac=b5f932f43ce7e5af26fa3c32ae6fd78a35b1b6f86150e8673e1152c0e283aa6b');
   background-size: cover;
+  background-repeat: no-repeat;
 }
+
