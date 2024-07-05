@@ -5,22 +5,22 @@ import axiosApi from '../../axiosApi';
 import { IPageMutation } from '../../types';
 
 const ShowPage = () => {
-  const [selectedPage, setSelectedPage]= useState<IPageMutation>({
-    content:"",
-    title:""
-  })
+  const [selectedPage, setSelectedPage] = useState<IPageMutation>({
+    content: '',
+    title: '',
+  });
 
-  const {id} = useParams()
+  const { id } = useParams();
 
-  const fetchPage = useCallback(async ()=>{
-
-    const {data:page} = await axiosApi.get<IPageMutation | null>(`/page/${id}.json`);
+  const fetchPage = useCallback(async () => {
+    const { data: page } = await axiosApi.get<IPageMutation | null>(
+      `/page/${id}.json`,
+    );
     setSelectedPage(page);
-
-  },[id])
+  }, [id]);
 
   useEffect(() => {
-    void fetchPage()
+    void fetchPage();
   }, [fetchPage]);
   return (
     <div className="p-5 bg-light">

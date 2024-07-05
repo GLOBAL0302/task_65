@@ -8,13 +8,12 @@ import ShowPage from './containers/ShowPage/ShowPage';
 const App = () => {
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <Routes>
-        <Route path="/PageForm" element={<PageForm/>}/>
-        <Route path="page/:id" element={<ShowPage/>}/>
-        <Route path="/*" element={<NotFoundPage/>}/>
+        <Route path="/PageForm" element={<PageForm />} />
+        <Route path="page/:id" element={<ShowPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
-
     </>
   );
 };
