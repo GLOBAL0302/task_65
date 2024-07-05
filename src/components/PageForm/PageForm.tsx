@@ -1,18 +1,18 @@
 import { PAGES } from '../../constants';
 import React, { useState } from 'react';
-import { IPageMutation } from '../../types';
-import axiosApi from '../../axiosApi';
+import { IPageEdit, IPageMutation } from '../../types';
 import { useNavigate } from 'react-router-dom';
+import axiosApi from '../../axiosApi';
 
-const initialState: IPageMutation = {
-  page: '',
+const initialState: IPageEdit = {
   title: '',
   content: '',
+  page:"Home"
 };
 
 const PageForm = () => {
   const navigate = useNavigate();
-  const [pageMutation, setPageMutation] = useState<IPageMutation>(initialState);
+  const [pageMutation, setPageMutation] = useState<IPageEdit>(initialState);
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.target;
@@ -22,10 +22,14 @@ const PageForm = () => {
     }));
   };
 
-  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
 
-    axiosApi.post("/page.json", pageMutation);
+  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    let change = {
+      title: pageMutation.title,
+      content :pageMutation.content
+    }
+    event.preventDefault();
+    axiosApi.put(`/page/${pageMutation.page.toLowerCase()}.json`, change )
   };
 
   return (
@@ -37,7 +41,6 @@ const PageForm = () => {
           <label htmlFor='page'></label>
           <select
             required
-            value={pageMutation.page}
             onChange={onChange}
             name='page'
             id='page'

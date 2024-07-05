@@ -4,7 +4,12 @@ export interface IPage{
 }
 
 export interface IPageMutation{
-  page:string,
   title:string,
-  content:string
+  content:string,
+
 }
+
+export interface IPageEdit extends IPageMutation{
+  page:string
+}
+
