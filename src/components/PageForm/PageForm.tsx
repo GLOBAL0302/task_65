@@ -1,6 +1,6 @@
 import { PAGES } from '../../constants';
 import React, { useState } from 'react';
-import { IPageEdit, IPageMutation } from '../../types';
+import { IPageEdit} from '../../types';
 import { useNavigate } from 'react-router-dom';
 import axiosApi from '../../axiosApi';
 
@@ -30,6 +30,7 @@ const PageForm = () => {
     }
     event.preventDefault();
     axiosApi.put(`/page/${pageMutation.page.toLowerCase()}.json`, change )
+    navigate(`/page/${pageMutation.page}`)
   };
 
   return (
